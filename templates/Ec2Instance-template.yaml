@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Template for complete ec2 infrastructure'
+Resources:
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      SecurityGroup:
+        - !Ref EC2SecurityGroup
+      ImgaeId: ami-05548f9cecf47b224
+      KeyPair: !Ref EC2KeyPair
+
+  EC2SecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow traffic for ssh and http traffic
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+
+  EC2KeyPair:
+    type: AWS::EC2::SecurityGroup
+    properties:
+      KeyName: EC2KeyPair
