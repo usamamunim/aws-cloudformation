@@ -9,6 +9,7 @@ Resources:
         - !Ref EC2SecurityGroup
       ImgaeId: ami-05548f9cecf47b224
       KeyPair: !Ref EC2KeyPair
+      SubnetId: !ImportValue Subnet1Id
 
   EC2SecurityGroup:
     Type: AWS::EC2::SecurityGroup
