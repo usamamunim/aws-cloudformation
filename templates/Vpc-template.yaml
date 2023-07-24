@@ -19,3 +19,17 @@ Resources:
       VpcId: !Ref
       CidrBlock: 10.0.1.0/24
       AvailabilityZone: us-east-1b
+
+Outputs:
+  VpcId:
+    Value: !Ref VPC
+    Export:
+      Name: VpcId
+  Subnet1Id:
+    Value: !Ref Subnet1
+    Export:
+      Name: Subnet1Id
+  Subnet2Id:
+    Value: !Ref Subnet2
+    Export:
+      Name: Subnet2Id
